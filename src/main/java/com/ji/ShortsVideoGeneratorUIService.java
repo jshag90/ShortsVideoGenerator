@@ -23,13 +23,13 @@ public class ShortsVideoGeneratorUIService extends JFrame {
     public static JTextField posXField;
     public static JTextField posYField;
 
-    ShortsVideoGeneratorService shortsVideoGeneratorService;
+    private static final String TITLE = "쇼츠 영상 생성기";
+    private static final int FRAME_WIDTH = 650;
+    private static final int FRAME_HEIGHT = 450;
 
     public ShortsVideoGeneratorUIService() {
-        shortsVideoGeneratorService = new ShortsVideoGeneratorService(this);
-
-        setTitle("쇼츠 영상 생성기");
-        setSize(650, 450);
+        setTitle(TITLE);
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -65,7 +65,7 @@ public class ShortsVideoGeneratorUIService extends JFrame {
         browseOutputBtn.addActionListener(this::browseOutputPath);
 
         JButton generateBtn = new JButton("쇼츠 영상 생성");
-        generateBtn.addActionListener(e -> shortsVideoGeneratorService.runFfmpegTwoStep());
+        generateBtn.addActionListener(e -> new ShortsVideoGeneratorService(this).runFfmpegTwoStep());
 
         JPanel panel = new JPanel(new GridLayout(7, 1));
         panel.add(buildRow(uploadImageBtn, imageLabel));
