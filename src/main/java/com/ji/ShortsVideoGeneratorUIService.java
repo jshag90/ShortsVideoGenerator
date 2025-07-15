@@ -29,7 +29,7 @@ public class ShortsVideoGeneratorUIService extends JFrame {
         shortsVideoGeneratorService = new ShortsVideoGeneratorService(this);
 
         setTitle("쇼츠 영상 생성기");
-        setSize(600, 400);
+        setSize(650, 450);
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
